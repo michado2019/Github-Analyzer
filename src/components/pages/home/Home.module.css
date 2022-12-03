@@ -1,4 +1,46 @@
-.homeWrapper{
-    font-size: 50px;
-    color: red;
+.homeWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 135%;
+  background-color: #f5f5f5;
+}
+.homeContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.homeImg{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid #111111;
+    background-color: #111111;
+    margin: 10px;
+    padding: 4px;
+
+}
+.homeForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.homeInput {
+  width: 300px;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 0 10px;
+}
+.homeBtn {
+  background-color: #000;
+  color: #ffffff;
+  padding: 15px 40px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: 700;
 }

@@ -1,3 +1,11 @@
 .App{
     margin: 0 auto;
 }
+.appLayout{
+    display: flex;
+    align-items: center;
+}
+
+.appLayout-router{
+    flex: 1;
+}
