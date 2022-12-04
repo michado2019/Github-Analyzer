@@ -11,7 +11,7 @@ function App() {
 
    // State
    const [data, setData] = useState({});
-  
+   
    // Fetch adata from gitbub api
    async function getData() {
      const url = "https://api.github.com/users/michado2019";
@@ -29,6 +29,7 @@ function App() {
      });
    }
    getData();
+
   return (
     <div className="App">
     <DataContext.Provider value={data}>

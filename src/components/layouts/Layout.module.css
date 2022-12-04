@@ -63,7 +63,7 @@
   margin: 40px;
 }
 .sidebarContent{
-  width: 80%;
+  width: 300px;
   background-color: #f2f2f2;
   display: flex;
   flex-direction: column;
@@ -93,6 +93,7 @@
 }
 .sidebarLinks{
   color: #555555;
+  font-size: 18px;
 }
 .sidebarLabels{
   font-size: 1.2rem;
@@ -102,7 +103,7 @@
   margin-right: 5px;
 }
 .copyRight{
-  width: 82%;
+  width: 310px;
   font-size: 1rem;
   font-weight: 600;
   margin-top: 70px;
@@ -111,11 +112,11 @@
   text-align: center;
   padding-top: 50px;
   color: #fff;
-  box-shadow: 2px 3px 4px 10px #f3f3f3;
+  box-shadow: 2px 3px 4px 7px #f3f3f3;
 }
 .loveImgText{
   color: #212121;
-  font-size: 24px;
+  font-size: 20px;
   margin-top: 20px;
 }
 .loveImg{
