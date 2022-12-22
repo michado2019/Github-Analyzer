@@ -1,10 +1,10 @@
-import useForm from "./components/hooks/useForm";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { useState, useEffect, createContext } from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/pages/home/Home";
+import useForm from "./components/hooks/useForm";
 
 // Create context
 export const DataContext = createContext();
@@ -55,8 +55,8 @@ function App() {
   // useEffect
   useEffect(() => {
     handleOpen();
-    setGithubLink(inputs.github);
-  }, [inputs.github]);
+    setGithubLink(inputs);
+  }, [inputs]);
   return (
     <div className="App">
       <DataContext.Provider value={data}>
@@ -70,9 +70,7 @@ function App() {
               <input
                 placeholder="Enter github username"
                 type="text"
-                name="github"
                 onChange={handleChange}
-                value={inputs.github}
                 className="boxForm-input"
               />
               <button className="formBtns">Analyze</button>

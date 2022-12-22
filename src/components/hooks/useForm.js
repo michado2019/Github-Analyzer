@@ -1,16 +1,12 @@
 import { useState } from "react";
 
-export default function useForm(initial = {}) {
+export default function useForm(initial = '') {
   const [inputs, setInputs] = useState(initial);
 
   // Handlers
   const handleChange = (e) => {
     e.preventDefault();
-    let { name, value } = e.target;
-    setInputs({
-      ...inputs,
-      [name]: value,
-    });
+    setInputs(e.target.value);
   };
 
   const handleClearForm = (e) => {

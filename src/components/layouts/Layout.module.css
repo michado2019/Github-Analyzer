@@ -201,6 +201,7 @@ a {
   color: #44065a;
   border: 0;
   border-radius: 5px;
+  cursor: pointer;
 }
 .followersAvatar {
   width: 130px;
