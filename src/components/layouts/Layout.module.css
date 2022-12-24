@@ -32,7 +32,7 @@
   align-items: center;
   margin-left: auto;
 }
-.navbarListsDiv2{
+.navbarListsDiv2 {
   display: none;
 }
 .navbarList,
@@ -62,7 +62,7 @@ a {
   margin-left: 3px;
   font-size: 12px;
 }
-.menu{
+.menu {
   width: 40px !important;
   height: 40px !important;
   color: #ffffff !important;
@@ -82,10 +82,10 @@ a {
   animation-duration: 0.4s;
 }
 @keyframes sidebarWrapper {
-  0%{
-  margin-top: -1000px;
+  0% {
+    margin-top: -1000px;
   }
-  100%{
+  100% {
     margin-top: 40px;
   }
 }
@@ -93,8 +93,11 @@ a {
   display: flex;
   width: 100%;
 }
+.sidebarHid{
+  display: none;
+}
 .sidebarContent {
-  width: 300px;
+  width: 307px;
   background-color: #f2f2f2;
   display: flex;
   flex-direction: column;
@@ -103,10 +106,20 @@ a {
   padding: 20px 10px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  box-shadow: 3px 5px 6px 8px #f2f2f2;
+  box-shadow: 1px 2px 3px 3px #f2f2f2;
   padding-left: 20px;
+  animation-name: sidebarContent;
+  animation-duration: 0.4s;
 }
-.sidebarContentFlex{
+@keyframes sidebarContent {
+  0% {
+    margin-left: -1000px;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+.sidebarContentFlex {
   display: flex;
   align-items: center;
 }
@@ -169,6 +182,7 @@ a {
   background-color: none;
 }
 .followersDetailsDiv {
+  width: 120%;
   height: 300px;
   background-color: #212121;
   border-radius: 100px;
@@ -177,11 +191,11 @@ a {
   animation-duration: 0.3s;
 }
 @keyframes followersDetailsDiv {
-  0%{
-  margin-right: -1000px;
+  0% {
+    margin-right: -1000px;
   }
-  100%{
-  margin-right: 0;
+  100% {
+    margin-right: 0;
   }
 }
 .details {
@@ -205,12 +219,12 @@ a {
   color: #fff;
   font-size: 24px;
 }
-.url{
+.url {
   font-size: 14px;
 }
 .prevAndNextBtns {
   width: 50%;
-  height:50px;
+  height: 50px;
   margin: 2px 0;
   border: 0;
   border-radius: 4px;
@@ -218,7 +232,7 @@ a {
   cursor: pointer;
   font-size: 24px;
 }
-#changeUser{
+#changeUser {
   width: 100px;
   height: 30px;
   position: fixed;
@@ -236,22 +250,22 @@ a {
   border-radius: 15px;
 }
 .moreDetails {
-  margin-left:5%;
+  margin-left: 5%;
 }
 .copyRight {
   width: 310px;
   font-size: 1rem;
   font-weight: 600;
-  margin-top: 70px;
+  margin-top: 5px;
   background-color: #44065a;
   padding: 20px;
   text-align: center;
   padding-top: 50px;
   color: #fff;
-  box-shadow: 2px 3px 4px 7px #f3f3f3;
 }
-.arrow{
+.arrow {
   display: none !important;
+  color: #555555 !important;
 }
 .followersFetcher {
   display: flex;
@@ -275,10 +289,10 @@ a {
   .navbarListsDiv {
     display: none;
   }
-  .navbarListsDiv2{
+  .navbarListsDiv2 {
     display: flex;
     flex-direction: column;
-    align-items:flex-start;
+    align-items: flex-start;
     margin-top: 603px;
     position: absolute;
     right: 0;
@@ -290,23 +304,26 @@ a {
     animation-duration: 0.5s;
   }
   @keyframes navbarListsDiv {
-    0%{
+    0% {
       margin-right: -500px;
     }
-    100%{
+    100% {
       margin-right: 0;
       transition: all 0.5s;
     }
   }
-  .navbarList{
+  .navbarList {
     margin-top: 10px;
     color: #555555;
   }
-  .menu{
+  .menuDiv{
+    margin-right: 20%;
+  }
+  .menu {
     display: block !important;
     margin-left: 390%;
   }
-  .navbarListImg{
+  .navbarListImg {
     display: none;
   }
   .navbarFetchedData {
@@ -315,23 +332,177 @@ a {
   #navbarFetchedData {
     margin-left: 12px;
   }
-  .sidebarHid{
-  margin-left: -300px;
+  .sidebarHid1{
+    display: none;
   }
-  .arrow{
+  .sidebarWrapper{
+    box-shadow: none;
+  }
+  .sidebarHid {
+    display: block;
+    margin-left: -350px;
+    position: absolute;
+    animation-name: sidebarHid;
+    animation-duration: 0.5s;
+  }
+  @keyframes sidebarHid {
+    0%{
+      margin-left: 0;
+    }
+    100%{
+      margin-left: -350px;
+      transition: all 0.3s;
+    }
+  }
+  .sidebarLinks{
+    font-size: 16px;
+    padding-right: 40px;
+  }
+  .arrow {
     display: block !important;
     border-radius: 50%;
-  padding: 8px;
-  margin-right: -50px;
-  margin-top: -100px;
-  background-color: #cccccc;
-  width: 40px !important;
-  height: 40px !important;
+    padding: 8px;
+    cursor: pointer;
+    margin-right: -40px;
+    margin-left: -50px;
+    margin-top: -100px;
+    background-color: #cccccc;
+    width: 40px !important;
+    height: 40px !important;
   }
-  .fetchDiv{
+  .fetchDiv {
     margin-left: 55%;
   }
-  .fetchBtn{
+  .fetchBtn {
     margin-left: 70px;
+  }
+  .followersDetailsDiv {
+    margin-left: -17%;
+    margin-top: 40px;
+  } 
+}
+@media screen and (max-width: 940px) {
+  .fetchBtn{
+    margin-left: 5%;
+  }
+  .followersDetailsDiv {
+    width: 150%;
+    margin-left: -27%;
+  }
+  
+}
+@media screen and (max-width: 800px) {
+  .menuDiv{
+    margin-right: 25%;
+  }
+  .fetchBtn{
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .fetchBtn{
+    margin-left: -2%;
+  }
+  .followersDetailsDiv {
+    width: 200%;
+    margin-left: -55%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .menuDiv{
+    margin-right: 35%;
+  }
+  .fetchBtn{
+    margin-left: -20%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .detailsOne {
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    margin-left: 0;
+    width: 300px;
+  }
+  .followersLogin {
+    margin: 3px 0;
+    margin-left: 30px;
+  }
+  .fetchBtn{
+    margin-left: -35%;
+    width: 280px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .menuDiv{
+    margin-right: 40%;
+  }
+  .fetchBtn{
+    margin-left: -45%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .appLogoText {
+    font-size: 1.0rem;
+  }
+  .appLogo {
+    width: 40px;
+    height: 40px;
+    margin-right: 0.8rem;
+    border: 3px solid #fff;
+    margin: 3px;
+  }
+  .menuDiv{
+    margin-right: 50%;
+  }
+  .navbarListsDiv2{
+    margin-top: 593px;
+  }
+  .sidebarWrapper {
+    margin: 0;
+    margin-left: 10px;
+    margin-top: 40px;
+  }
+  .arrow{
+    margin-left: 8%;
+  }
+  .sidebarGrandUserImg{
+    margin-left: 15%;
+  }
+  .sidebarContent{
+    padding-left: 15%;
+  }
+  .sidebarLinks{
+    font-size: 14px;
+    padding: 0 20px;
+  }
+  #fetchBtn{
+    width: 280px;
+    margin-left: -3%;
+    text-align: center;
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 340px) {
+  .menuDiv{
+    margin-right: 60%;
+    margin-left: -10%;
+  }
+  .arrow{
+    margin-left: 30px;
+  }
+  .followersDetailsDiv {
+    margin-left: -60%;
+  }
+  .detailsOne {
+    margin-left: -7%;
+  }
+  .fetchBtn{
+    margin-left: -65%;
+  }
+}
+@media screen and (max-width: 320px) {
+  .sidebarContent{
+    width: 280px;
   }
 }

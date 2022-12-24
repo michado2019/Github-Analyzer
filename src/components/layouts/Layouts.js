@@ -10,26 +10,29 @@ import repoIcon from "../layouts/assets/repo.png";
 import linkIcon from "../layouts/assets/linkLogo.jpg";
 import loveImg from "../layouts/assets/loveIcon.jpg";
 import useFetch from "../hooks/useFetch";
-import { ArrowForwardIosOutlined, Menu, CancelOutlined } from "@mui/icons-material";
+import {
+  ArrowForwardIosOutlined,
+  Menu,
+  CancelOutlined,
+} from "@mui/icons-material";
 
 //Navbar
 export const Navbar = () => {
-
   // Use context
   const data = useContext(DataContext);
   const { result } = data;
 
-  // States 
-  const [display, setDisplay] = useState(false)
+  // States
+  const [display, setDisplay] = useState(false);
 
   // Handlers
   const handleMenu = () => {
-    setDisplay(false)
-  }
+    setDisplay(false);
+  };
   const handleCancel = () => {
-    setDisplay(true)
-  }
-  
+    setDisplay(true);
+  };
+
   return (
     <div className={layout.navbarWrapper}>
       {result ? (
@@ -37,101 +40,120 @@ export const Navbar = () => {
           <div className={layout.logoDiv}>
             <img src={githubLogo} alt="logo" className={layout.appLogo} />
             <h2 className={layout.appLogoText}>Analyzer</h2>
-            {
-              display ? 
-          <Menu className={layout.menu} onClick={handleMenu}/> :
-          <CancelOutlined className={layout.menu} onClick={handleCancel} /> 
-            }
           </div>
-          {
-            display ? 
+          <div className={layout.menuDiv}>
+            {display ? (
+              <Menu className={layout.menu} onClick={handleMenu} />
+            ) : (
+              <CancelOutlined className={layout.menu} onClick={handleCancel} />
+            )}
+            </div>
+          {display ? (
             <div className={layout.navbarListsDiv}>
-            <li className={layout.navbarList}>
-              <img src={homeIcon} alt="img" className={layout.navbarListImg} />
-              <Link to="/" className={layout.navbarList}>
-                Home
-              </Link>
-            </li>
-            <img
-              src={folowersIcon}
-              alt="img"
-              className={layout.navbarListImg}
-            />
-            <a href="https://github.com/michado2019">
               <li className={layout.navbarList}>
-                Followers{" "}
-                <span className={layout.navbarFetchedData}>
-                  {result?.followers}
-                </span>
+                <img
+                  src={homeIcon}
+                  alt="img"
+                  className={layout.navbarListImg}
+                />
+                <Link to="/" className={layout.navbarList}>
+                  Home
+                </Link>
               </li>
-            </a>
-            <img
-              src={followingIcon}
-              alt="img"
-              className={layout.navbarListImg}
-            />
-            <a href="https://github.com/michado2019">
+              <img
+                src={folowersIcon}
+                alt="img"
+                className={layout.navbarListImg}
+              />
+              <a href="https://github.com/michado2019">
+                <li className={layout.navbarList}>
+                  Followers{" "}
+                  <span className={layout.navbarFetchedData}>
+                    {result?.followers}
+                  </span>
+                </li>
+              </a>
+              <img
+                src={followingIcon}
+                alt="img"
+                className={layout.navbarListImg}
+              />
+              <a href="https://github.com/michado2019">
+                <li className={layout.navbarList}>
+                  Following{" "}
+                  <span className={layout.navbarFetchedData}>
+                    {result?.following}
+                  </span>
+                </li>
+              </a>
+              <img src={repoIcon} alt="img" className={layout.navbarListImg} />
+              <a href="https://github.com/michado2019">
+                <li className={layout.navbarList}>
+                  Public-repo{" "}
+                  <span
+                    className={layout.navbarFetchedData}
+                    id={layout.navbarFetchedData}
+                  >
+                    {result?.public_repos}
+                  </span>
+                </li>
+              </a>
+            </div>
+          ) : (
+            <div
+              className={layout.navbarListsDiv2}
+              style={{ display: display ? "none" : "flex", transition: 'all 0.4s' }}
+            >
               <li className={layout.navbarList}>
-                Following{" "}
-                <span className={layout.navbarFetchedData}>
-                  {result?.following}
-                </span>
+                <img
+                  src={homeIcon}
+                  alt="img"
+                  className={layout.navbarListImg}
+                />
+                <Link to="/" className={layout.navbarList}>
+                  Home
+                </Link>
               </li>
-            </a>
-            <img src={repoIcon} alt="img" className={layout.navbarListImg} />
-            <a href="https://github.com/michado2019">
-              <li className={layout.navbarList}>
-                Public-repo{" "}
-                <span className={layout.navbarFetchedData} id={layout.navbarFetchedData}>
-                  {result?.public_repos}
-                </span>
-              </li>
-            </a>
-          </div> :
-          <div className={layout.navbarListsDiv2} style={{display: display? 'none' : 'flex'}}>
-          <li className={layout.navbarList}>
-            <img src={homeIcon} alt="img" className={layout.navbarListImg} />
-            <Link to="/" className={layout.navbarList}>
-              Home
-            </Link>
-          </li>
-          <img
-            src={folowersIcon}
-            alt="img"
-            className={layout.navbarListImg}
-          />
-          <a href="https://github.com/michado2019">
-            <li className={layout.navbarList}>
-              Followers{" "}
-              <span className={layout.navbarFetchedData}>
-                {result?.followers}
-              </span>
-            </li>
-          </a>
-          <img
-            src={followingIcon}
-            alt="img"
-            className={layout.navbarListImg}
-          />
-          <a href="https://github.com/michado2019">
-            <li className={layout.navbarList}>
-              Following{" "}
-              <span className={layout.navbarFetchedData}>
-                {result?.following}
-              </span>
-            </li>
-          </a>
-          <img src={repoIcon} alt="img" className={layout.navbarListImg} />
-          <a href="https://github.com/michado2019">
-            <li className={layout.navbarList}>
-              Public-repo{" "}
-              <span className={layout.navbarFetchedData} id={layout.navbarFetchedData}>
-                {result?.public_repos}
-              </span>
-            </li>
-          </a>
-        </div>
-          }
+              <img
+                src={folowersIcon}
+                alt="img"
+                className={layout.navbarListImg}
+              />
+              <a href="https://github.com/michado2019">
+                <li className={layout.navbarList}>
+                  Followers{" "}
+                  <span className={layout.navbarFetchedData}>
+                    {result?.followers}
+                  </span>
+                </li>
+              </a>
+              <img
+                src={followingIcon}
+                alt="img"
+                className={layout.navbarListImg}
+              />
+              <a href="https://github.com/michado2019">
+                <li className={layout.navbarList}>
+                  Following{" "}
+                  <span className={layout.navbarFetchedData}>
+                    {result?.following}
+                  </span>
+                </li>
+              </a>
+              <img src={repoIcon} alt="img" className={layout.navbarListImg} />
+              <a href="https://github.com/michado2019">
+                <li className={layout.navbarList}>
+                  Public-repo{" "}
+                  <span
+                    className={layout.navbarFetchedData}
+                    id={layout.navbarFetchedData}
+                  >
+                    {result?.public_repos}
+                  </span>
+                </li>
+              </a>
+            </div>
+          )}
         </ul>
       ) : (
         ""
@@ -150,6 +172,7 @@ export const Sidebar = () => {
   const [followers, setFollowers] = useState("");
   const [page, setPage] = useState(1);
   const [style, setStyle] = useState(false);
+  const [sidebarStyle, setSidebarStyle] = useState(false);
 
   const { data, loading, error } = useFetch(`${followers}`);
 
@@ -169,6 +192,8 @@ export const Sidebar = () => {
   const perPage = 1;
   const pages = Math.ceil(data?.length / perPage);
   const skip = page * perPage - perPage;
+
+  // Handlers
   function handleGetFollowers() {
     const url = result.followers_url;
     async function getFollowers() {
@@ -178,6 +203,9 @@ export const Sidebar = () => {
     getFollowers(url);
     setStyle(true);
   }
+  const handleSidebar = () => {
+    setSidebarStyle((prev) => !prev);
+  };
 
   // Change user
   const changeUser = () => {
@@ -187,53 +215,114 @@ export const Sidebar = () => {
     <div className={layout.sidebarWrapper}>
       {result ? (
         <div className={layout.sidebar}>
-          <div className={layout.sidebarHid}>
+          <div className={layout.sidebarHid1}>
             <div className={layout.sidebarContent}>
               <div className={layout.sidebarContentFlex}>
                 <div>
-                <img
-                  src={result?.avatar_url}
-                  alt="img"
-                  className={layout.sidebarGrandUserImg}
-                />
-                <div className={layout.sidebarDivs}>
-                  <label className={layout.sidebarLabels}>Name: </label>
-                  <h2 className={layout.sidebarGrandUserName}>
-                    {result?.name}
-                  </h2>
-                </div>
-                <div className={layout.sidebarDivs}>
-                  <label className={layout.sidebarLabels}>Bio: </label>
-                  <p className={layout.sidebarLinks}>{result?.bio}</p>
-                </div>
-                <div className={layout.sidebarDivs}>
                   <img
-                    src={linkIcon}
+                    src={result?.avatar_url}
                     alt="img"
-                    className={layout.sidebarLinkIcon}
+                    className={layout.sidebarGrandUserImg}
                   />
-                  <a
-                    href={userData.html_url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={layout.sidebarLinks}
-                  >
-                    {result?.html_url}
-                  </a>
+                  <div className={layout.sidebarDivs}>
+                    <label className={layout.sidebarLabels}>Name: </label>
+                    <h2 className={layout.sidebarGrandUserName}>
+                      {result?.name}
+                    </h2>
+                  </div>
+                  <div className={layout.sidebarDivs}>
+                    <label className={layout.sidebarLabels}>Bio: </label>
+                    <p className={layout.sidebarLinks}>{result?.bio}</p>
+                  </div>
+                  <div className={layout.sidebarDivs}>
+                    <img
+                      src={linkIcon}
+                      alt="img"
+                      className={layout.sidebarLinkIcon}
+                    />
+                    <a
+                      href={userData.html_url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={layout.sidebarLinks}
+                    >
+                      {result?.html_url}
+                    </a>
+                  </div>
+                  <div className={layout.sidebarDivs}>
+                    <label className={layout.sidebarLabels}>Twitter: </label>
+                    <a
+                      href="https://twitter.com/Mike_Adeshina"
+                      target="_blank"
+                      rel="noreferrer"
+                      className={layout.sidebarLinks}
+                    >
+                      {result?.twitter_username}
+                    </a>
+                  </div>
                 </div>
-                <div className={layout.sidebarDivs}>
-                  <label className={layout.sidebarLabels}>Twitter: </label>
-                  <a
-                    href="https://twitter.com/Mike_Adeshina"
-                    target="_blank"
-                    rel="noreferrer"
-                    className={layout.sidebarLinks}
-                  >
-                    {result?.twitter_username}
-                  </a>
+              </div>
+            </div>
+            <CopyRight />
+            <p className={layout.loveImgText}>
+              Made with{" "}
+              <img src={loveImg} alt="img" className={layout.loveImg} />
+              by Adeshina Michael
+            </p>
+          </div>
+          <div
+            className={layout.sidebarHid}
+            style={{ marginLeft: sidebarStyle ? "0" : "-350px", transition: 'all 0.4s' }}
+          >
+            <div className={layout.sidebarContent}>
+              <div className={layout.sidebarContentFlex}>
+                <div>
+                  <img
+                    src={result?.avatar_url}
+                    alt="img"
+                    className={layout.sidebarGrandUserImg}
+                  />
+                  <div className={layout.sidebarDivs}>
+                    <label className={layout.sidebarLabels}>Name: </label>
+                    <h2 className={layout.sidebarGrandUserName}>
+                      {result?.name}
+                    </h2>
+                  </div>
+                  <div className={layout.sidebarDivs}>
+                    <label className={layout.sidebarLabels}>Bio: </label>
+                    <p className={layout.sidebarLinks}>{result?.bio}</p>
+                  </div>
+                  <div className={layout.sidebarDivs}>
+                    <img
+                      src={linkIcon}
+                      alt="img"
+                      className={layout.sidebarLinkIcon}
+                    />
+                    <a
+                      href={userData.html_url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={layout.sidebarLinks}
+                    >
+                      {result?.html_url}
+                    </a>
+                  </div>
+                  <div className={layout.sidebarDivs}>
+                    <label className={layout.sidebarLabels}>Twitter: </label>
+                    <a
+                      href="https://twitter.com/Mike_Adeshina"
+                      target="_blank"
+                      rel="noreferrer"
+                      className={layout.sidebarLinks}
+                    >
+                      {result?.twitter_username}
+                    </a>
+                  </div>
                 </div>
-                </div>
-      <ArrowForwardIosOutlined className={layout.arrow}/>
+                <ArrowForwardIosOutlined
+                  className={layout.arrow}
+                  onClick={handleSidebar}
+                />
               </div>
             </div>
             <CopyRight />
