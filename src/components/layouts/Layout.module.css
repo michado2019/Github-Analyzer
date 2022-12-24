@@ -505,4 +505,10 @@ a {
   .sidebarContent{
     width: 280px;
   }
+  .arrow{
+    margin-left: 50px;
+  }
+  .copyRight{
+    width: 280px;
+  }
 }
