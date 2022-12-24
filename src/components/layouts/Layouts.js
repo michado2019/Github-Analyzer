@@ -10,7 +10,7 @@ import repoIcon from "../layouts/assets/repo.png";
 import linkIcon from "../layouts/assets/linkLogo.jpg";
 import loveImg from "../layouts/assets/loveIcon.jpg";
 import useFetch from "../hooks/useFetch";
-import { ArrowForwardIosOutlined, Menu } from "@mui/icons-material";
+import { ArrowForwardIosOutlined, Menu, CancelOutlined } from "@mui/icons-material";
 
 //Navbar
 export const Navbar = () => {
@@ -24,7 +24,10 @@ export const Navbar = () => {
 
   // Handlers
   const handleMenu = () => {
-    setDisplay(prev => !prev)
+    setDisplay(false)
+  }
+  const handleCancel = () => {
+    setDisplay(true)
   }
   
   return (
@@ -34,7 +37,11 @@ export const Navbar = () => {
           <div className={layout.logoDiv}>
             <img src={githubLogo} alt="logo" className={layout.appLogo} />
             <h2 className={layout.appLogoText}>Analyzer</h2>
-          <Menu className={layout.menu} onClick={handleMenu}/>
+            {
+              display ? 
+          <Menu className={layout.menu} onClick={handleMenu}/> :
+          <CancelOutlined className={layout.menu} onClick={handleCancel} /> 
+            }
           </div>
           {
             display ? 
