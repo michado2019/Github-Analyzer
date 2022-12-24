@@ -23,7 +23,8 @@ const style = {
 };
 
 function App() {
-  const { inputs, handleChange, handleClearForm } = useForm();
+
+  const { inputs, handleChange } = useForm();
 
   // States
   const [githubLink, setGithubLink] = useState("");
@@ -66,7 +67,7 @@ function App() {
           aria-describedby="modal-modal-description"
         >
           <Box sx={style} className="boxForm">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='form'>
               <input
                 placeholder="Enter github username"
                 type="text"
@@ -75,9 +76,6 @@ function App() {
               />
               <button className="formBtns">Analyze</button>
             </form>
-            <button onClick={handleClearForm} className="formBtns" id="formBtn">
-              Clear
-            </button>
           </Box>
         </Modal>
         <div className="appFlex">

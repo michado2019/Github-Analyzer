@@ -1,4 +1,4 @@
-.App{
+.App {
   margin: 0 auto;
 }
 .boxForm {
@@ -24,4 +24,19 @@
   background-color: red;
   border-radius: 4px;
   margin-top: 8px;
+}
+@media screen and (max-width: 600px) {
+  .boxForm {
+    width: 90% !important;
+  }
+}
+@media screen and (max-width: 340px) {
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .boxForm-input{
+    margin-bottom: 5px;
+  }
 }

@@ -9,17 +9,8 @@ export default function useForm(initial = '') {
     setInputs(e.target.value);
   };
 
-  const handleClearForm = (e) => {
-    e.preventDefault();
-    const blankState = Object.fromEntries(
-      Object.entries(inputs).map(([key]) => [key, ""])
-    );
-    setInputs(blankState);
-  };
-
   return {
     handleChange,
-    handleClearForm,
     inputs,
   };
 }
