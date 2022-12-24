@@ -32,6 +32,9 @@
   align-items: center;
   margin-left: auto;
 }
+.navbarListsDiv2{
+  display: none;
+}
 .navbarList,
 a {
   font-size: 20px;
@@ -59,6 +62,13 @@ a {
   margin-left: 3px;
   font-size: 12px;
 }
+.menu{
+  width: 40px !important;
+  height: 40px !important;
+  color: #ffffff !important;
+  cursor: pointer;
+  display: none !important;
+}
 .fetchingConditions {
   display: flex;
   justify-content: center;
@@ -68,6 +78,16 @@ a {
 }
 .sidebarWrapper {
   margin: 40px;
+  animation-name: sidebarWrapper;
+  animation-duration: 0.4s;
+}
+@keyframes sidebarWrapper {
+  0%{
+  margin-top: -1000px;
+  }
+  100%{
+    margin-top: 40px;
+  }
 }
 .sidebar {
   display: flex;
@@ -84,6 +104,11 @@ a {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   box-shadow: 3px 5px 6px 8px #f2f2f2;
+  padding-left: 20px;
+}
+.sidebarContentFlex{
+  display: flex;
+  align-items: center;
 }
 .sidebarGrandUserImg {
   width: 50%;
@@ -118,6 +143,7 @@ a {
   flex-direction: column;
   width: 100%;
   margin-left: 20%;
+  margin-top: 5%;
 }
 .fetchBtn {
   width: 300px;
@@ -195,7 +221,7 @@ a {
 #changeUser{
   width: 100px;
   height: 30px;
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
   color: #44065a;
@@ -224,6 +250,9 @@ a {
   color: #fff;
   box-shadow: 2px 3px 4px 7px #f3f3f3;
 }
+.arrow{
+  display: none !important;
+}
 .followersFetcher {
   display: flex;
   flex-direction: column;
@@ -239,4 +268,70 @@ a {
   width: 30px;
   height: 30px;
   margin-top: 15px;
+}
+@media screen and (max-width: 1024px) {
+
+  /*Navbar*/
+  .navbarListsDiv {
+    display: none;
+  }
+  .navbarListsDiv2{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    margin-top: 603px;
+    position: absolute;
+    right: 0;
+    background-color: #f3f3f3;
+    padding: 200px 30px;
+    padding-bottom: 184px;
+    margin-left: -500px;
+    animation-name: navbarListsDiv;
+    animation-duration: 0.5s;
+  }
+  @keyframes navbarListsDiv {
+    0%{
+      margin-right: -500px;
+    }
+    100%{
+      margin-right: 0;
+      transition: all 0.5s;
+    }
+  }
+  .navbarList{
+    margin-top: 10px;
+    color: #555555;
+  }
+  .menu{
+    display: block !important;
+    margin-left: 390%;
+  }
+  .navbarListImg{
+    display: none;
+  }
+  .navbarFetchedData {
+    margin-left: 27px;
+  }
+  #navbarFetchedData {
+    margin-left: 12px;
+  }
+  .sidebarHid{
+  margin-left: -300px;
+  }
+  .arrow{
+    display: block !important;
+    border-radius: 50%;
+  padding: 8px;
+  margin-right: -50px;
+  margin-top: -100px;
+  background-color: #cccccc;
+  width: 40px !important;
+  height: 40px !important;
+  }
+  .fetchDiv{
+    margin-left: 55%;
+  }
+  .fetchBtn{
+    margin-left: 70px;
+  }
 }
